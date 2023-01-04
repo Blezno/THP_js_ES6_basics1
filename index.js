@@ -33,20 +33,33 @@ const items = [
 {id: 26, name: 'Aerodynamic Linen Lamp'},
 {id: 27, name: 'Heavy Duty Silk Bottle'},
 {id: 28, name: 'Incredible Bronze Clock'},
-{id: 29, name: 'Heavy Duty Linen Knife'},
-];
+{id: 29, name: 'Heavy Duty Linen Knife'}
+]
 
-console.log("Please choose an option below : ");
-console.log("1.Access the list of items");
-console.log("2.Exit the app");
-
-const optionMenu = rl.question("Please enter a number :");
-    if(optionMenu === "1") {
-        console.log("You choose to access the list of items")
-        console.log(items);
-    } else if(optionMenu === "2") {
-        console.log("You choose to exit the app.")
+function main(){
+  rl.question("Please select an option : \n1. Acces to the items'list \n2. Quit \nEnter a number: ", (answer) => {
+    console.log("You entered: ${answer}");
+      if (answer === '1') {
+        displayItems(items);
+      } else if ( answer === '2') {
         rl.close();
-    } else {
-        console.log("You did not select the right number, please try again.")
-    };
+      } else {
+        console.log("You didn't select the right number. Try again")
+        main();
+      }
+  });
+};
+main();
+// //const optionMenu = () => { rl.question("Please choose an option below : \n 1.Access the list of items \n 2.Exit the app \n Please enter a number :", (answer) => {
+//   //  console.log("You entered : ${answer}");
+//     //if(answer === "1") {
+//         optionMenu();
+//     } else if(answer === "2") {
+//         rl.close();
+//     } else {
+//         console.log("You did not select the right number, please try again.");
+//         optionMenu();
+//     };
+// });
+// };
+// optionMenu();
